@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>animate</title>
+<link rel="stylesheet" type="text/css" href="../../../src/animate/0.0.1/animate.css" />
+</head>
+<body>
+<div class="section">
+  <div class="animate">fade in</div>
+  <a href="javascript:;" class="btn" data-name="fadeIn">fade in</a>
+</div>
+<div class="section">
+  <div class="animate">fade out</div>
+  <a href="javascript:;" class="btn" data-name="fadeOut">fade out</a>
+</div>
+<div class="section">
+  <div class="animate sliderUp">slider up</div>
+  <a href="javascript:;" class="btn"  data-name="sliderUp">slider up</a>
+</div>
+<div class="section">
+  <div class="animate">slider down</div>
+  <a href="javascript:;" class="btn" data-name="sliderDown">slider down</a>
+</div>
+<div class="section">
+  <div class="animate">slider left</div>
+  <a href="javascript:;" class="btn" data-name="sliderLeft">slider left</a>
+</div>
+<div class="section">
+  <div class="animate">slider right</div>
+  <a href="javascript:;" class="btn" data-name="sliderRight">slider right</a>
+</div>
+<div class="section">
+  <div class="animate show">show up</div>
+  <a href="javascript:;" class="btn"  data-name="showUp">show up</a>
+</div>
+<div class="section">
+  <div class="animate">show down</div>
+  <a href="javascript:;" class="btn" data-name="showDown">show down</a>
+</div>
+<div class="section">
+  <div class="animate">show left</div>
+  <a href="javascript:;" class="btn" data-name="showLeft">show left</a>
+</div>
+<div class="section">
+  <div class="animate">show right</div>
+  <a href="javascript:;" class="btn" data-name="showRight">show right</a>
+</div>
+<div class="section">
+  <div class="animate">enlarge</div>
+  <a href="javascript:;" class="btn" data-name="enlarge">enlarge</a>
+</div>
+<div class="section">
+  <div class="animate">norrow</div>
+  <a href="javascript:;" class="btn" data-name="norrow">norrow</a>
+</div>
+<div class="section">
+  <div class="animate">scale</div>
+  <a href="javascript:;" class="btn" data-name="scale">scale</a>
+</div>
+<div class="section">
+  <div class="animate">rotateout</div>
+  <a href="javascript:;" class="btn" data-name="rotateOut">rotateout</a>
+</div>
+<div class="section">
+  <div class="animate">rotatein</div>
+  <a href="javascript:;" class="btn" data-name="rotateIn">rotatein</a>
+</div>
+<div class="section">
+  <div class="animate">jump</div>
+  <a href="javascript:;" class="btn" data-name="jump">jump</a>
+</div>
+<div class="section">
+  <div class="animate">rock</div>
+  <a href="javascript:;" class="btn" data-name="rock">rock</a>
+</div>
+<script type="text/javascript" src="http://img.wan.ijinshan.com/thirdpart/zepto/1.1.3/zepto.js"></script>
+<script type="text/javascript">
+
+var $animate = $('.animate');
+$('a.btn').on('click', function(){
+        var $this = $(this),
+        name = $(this).attr('data-name');
+        $('.animate').attr('class', 'animate');
+        setTimeout(function(){
+              $this.prev('.animate').addClass(name );
+        },100);
+});
+for(var i=0,len=$animate.length, $item; i<len; i++){
+        $item = $animate.eq(i);
+	 $item.addClass( $item.next('.btn').attr('data-name'));
+}
+</script>
+</body>
+</html>
