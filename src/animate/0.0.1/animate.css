@@ -1,0 +1,443 @@
+@charset "UTF-8";
+.section {
+  display: inline-block; }
+
+.animate {
+  height: 80px;
+  width: 80px;
+  position: relative;
+  background: rgba(0, 30, 255, 0.5); }
+
+.btn {
+  height: 30px;
+  width: 80px;
+  display: inline-block;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.2); }
+
+/* 动画 */
+/*@mixin animateInfinite($animate){
+	-webkit-animation: $animate $animTime $animType $animDelay $animCount;
+	animation: $animate $animTime $animType $animDelay $animCount;
+}*/
+/*%rotate{
+	0%{@include rotate(0);}
+	25%{@include rotate(90deg);}
+	50%{@include rotate(180deg);}
+	75%{@include rotate(270deg);}
+	100%{@include rotate(360deg);}
+}*/
+/* 方向移动 */
+/* 方向延伸 */
+/* 向左滑动 */
+.sliderLeft {
+  -webkit-animation: sliderleft 2s linear 0.2s;
+  animation: sliderleft 2s linear 0.2s; }
+
+@-webkit-keyframes sliderleft {
+  0% {
+    transform: translate(100%, 0); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(100%, 0); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+@keyframes sliderleft {
+  0% {
+    transform: translate(100%, 0); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(100%, 0); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+/* 向右滑动 */
+.sliderRight {
+  -webkit-animation: sliderright 2s linear 0.2s;
+  animation: sliderright 2s linear 0.2s; }
+
+@-webkit-keyframes sliderright {
+  0% {
+    transform: translate(-100%, 0); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(-100%, 0); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+@keyframes sliderright {
+  0% {
+    transform: translate(-100%, 0); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(-100%, 0); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+/* 向上滑动 */
+.sliderUp {
+  -webkit-animation: slidertop 2s linear 0.2s;
+  animation: slidertop 2s linear 0.2s; }
+
+@-webkit-keyframes slidertop {
+  0% {
+    transform: translate(0, 100%); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(0, 100%); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+@keyframes slidertop {
+  0% {
+    transform: translate(0, 100%); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(0, 100%); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+/* 向下滑动 */
+.sliderDown {
+  -webkit-animation: sliderdown 2s linear 0.2s;
+  animation: sliderdown 2s linear 0.2s; }
+
+@-webkit-keyframes sliderdown {
+  0% {
+    transform: translate(0, -100%); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(0, -100%); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+@keyframes sliderdown {
+  0% {
+    transform: translate(0, -100%); }
+  100% {
+    transform: translate(0, 0); }
+  0% {
+    -webkit-transform: translate(0, -100%); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+/* 向左展开 */
+.showLeft {
+  -webkit-animation: showleft 2s linear 0.2s;
+  animation: showleft 2s linear 0.2s;
+  -webkit-transform-origin: center right;
+  transform-origin: center right; }
+
+@-webkit-keyframes showleft {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    tranform: scaleX(1); }
+  0% {
+    -webkit-transform: scaleX(0); }
+  100% {
+    -webkit-tranform: scaleX(1); } }
+@keyframes showleft {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    tranform: scaleX(1); }
+  0% {
+    -webkit-transform: scaleX(0); }
+  100% {
+    -webkit-tranform: scaleX(1); } }
+/* 向右展开 */
+.showRight {
+  -webkit-animation: showright 2s linear 0.2s;
+  animation: showright 2s linear 0.2s;
+  -webkit-transform-origin: center left;
+  transform-origin: center left; }
+
+@-webkit-keyframes showright {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    tranform: scaleX(1); }
+  0% {
+    -webkit-transform: scaleX(0); }
+  100% {
+    -webkit-tranform: scaleX(1); } }
+@keyframes showright {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    tranform: scaleX(1); }
+  0% {
+    -webkit-transform: scaleX(0); }
+  100% {
+    -webkit-tranform: scaleX(1); } }
+/* 向上展开 */
+.showUp {
+  -webkit-animation: showtop 2s linear 0.2s;
+  animation: showtop 2s linear 0.2s;
+  -webkit-transform-origin: bottom center;
+  transform-origin: bottom center; }
+
+@-webkit-keyframes showtop {
+  0% {
+    transform: scaleY(0); }
+  100% {
+    tranform: scaleY(1); }
+  0% {
+    -webkit-transform: scaleY(0); }
+  100% {
+    -webkit-tranform: scaleY(1); } }
+@keyframes showtop {
+  0% {
+    transform: scaleY(0); }
+  100% {
+    tranform: scaleY(1); }
+  0% {
+    -webkit-transform: scaleY(0); }
+  100% {
+    -webkit-tranform: scaleY(1); } }
+/* 向下展开 */
+.showDown {
+  -webkit-animation: showbottom 2s linear 0.2s;
+  animation: showbottom 2s linear 0.2s;
+  -webkit-transform-origin: top center;
+  transform-origin: top center; }
+
+@-webkit-keyframes showbottom {
+  0% {
+    transform: scaleY(0); }
+  100% {
+    tranform: scaleY(1); }
+  0% {
+    -webkit-transform: scaleY(0); }
+  100% {
+    -webkit-tranform: scaleY(1); } }
+@keyframes showbottom {
+  0% {
+    transform: scaleY(0); }
+  100% {
+    tranform: scaleY(1); }
+  0% {
+    -webkit-transform: scaleY(0); }
+  100% {
+    -webkit-tranform: scaleY(1); } }
+/* 放大  */
+.enlarge {
+  -webkit-animation: enlarge 2s linear 0.2s;
+  animation: enlarge 2s linear 0.2s; }
+
+@-webkit-keyframes enlarge {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+@keyframes enlarge {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+/* 缩小 */
+.norrow {
+  -webkit-animation: norrow 2s linear 0.2s;
+  animation: norrow 2s linear 0.2s; }
+
+@-webkit-keyframes norrow {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0.2); } }
+@keyframes norrow {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0.2); } }
+/* 渐现 */
+.fadeIn {
+  -webkit-animation: fadein 2s linear 0.2s;
+  animation: fadein 2s linear 0.2s; }
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+/* 渐隐 */
+.fadeOut {
+  -webkit-animation: fadeout 2s linear 0.2s;
+  animation: fadeout 2s linear 0.2s; }
+
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes fadeout {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+/* 持续跳跃 */
+.jump {
+  -webkit-animation: jump 2s linear 0.2s;
+  animation: jump 2s linear 0.2s;
+  -webkit-animation: jump 2s linear 0.2s infinite;
+  animation: jump 2s linear 0.2s infinite; }
+
+@-webkit-keyframes jump {
+  0% {
+    bottom: 0px; }
+  60% {
+    opacity: 1; }
+  100% {
+    bottom: 30px;
+    opacity: 0; } }
+@keyframes jump {
+  0% {
+    bottom: 0px; }
+  60% {
+    opacity: 1; }
+  100% {
+    bottom: 30px;
+    opacity: 0; } }
+/* 持续左右移动 */
+.rock {
+  -webkit-animation: rock 2s linear 0.2s;
+  animation: rock 2s linear 0.2s;
+  -webkit-animation: rock 2s linear 0.2s infinite;
+  animation: rock 2s linear 0.2s infinite; }
+
+@-webkit-keyframes rock {
+  0% {
+    transform: translate(20px); }
+  50% {
+    transform: translate(-20px); }
+  100% {
+    transform: translate(20px); } }
+@keyframes rock {
+  0% {
+    transform: translate(20px); }
+  50% {
+    transform: translate(-20px); }
+  100% {
+    transform: translate(20px); } }
+/* 旋转后 */
+.rotateIn {
+  -webkit-animation: rotatein 2s linear 0.2s;
+  animation: rotatein 2s linear 0.2s;
+  -webkit-animation: rotatein 2s linear 0.2s infinite;
+  animation: rotatein 2s linear 0.2s infinite;
+  -webkit-transform-origin: center center;
+  transform-origin: center center; }
+
+@-webkit-keyframes rotatein {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0); }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg); }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg); }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+@keyframes rotatein {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0); }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg); }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg); }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+/* 旋转后消失 */
+.rotateOut {
+  -webkit-animation: rotateout 2s linear 0.2s;
+  animation: rotateout 2s linear 0.2s;
+  -webkit-transform-origin: center center;
+  transform-origin: center center; }
+
+@-webkit-keyframes rotateout {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0); }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg); }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg); }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    opacity: 0; } }
+@keyframes rotateout {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0); }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg); }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg); }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    opacity: 0; } }
+/* 水平旋转 */
+.scale {
+  -webkit-animation: scale 2s linear 0.2s;
+  animation: scale 2s linear 0.2s;
+  -webkit-transform-origin: center center;
+  transform-origin: center center; }
+
+@-webkit-keyframes scale {
+  0% {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1); }
+  50% {
+    transform: scaleX(0);
+    -webkit-transform: scaleX(0); }
+  100% {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1); } }
+@keyframes scale {
+  0% {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1); }
+  50% {
+    transform: scaleX(0);
+    -webkit-transform: scaleX(0); }
+  100% {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1); } }
+
+/*# sourceMappingURL=animate.css.map */

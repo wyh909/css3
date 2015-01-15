@@ -1,0 +1,229 @@
+.section{
+  display: inline-block;
+}
+.animate {
+  height:80px;
+  width: 80px;
+  position: relative;
+  background: rgba(0,30,255,.5);
+
+}
+.btn {
+  height: 30px;
+  width: 80px;
+  display:inline-block;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 30px;
+  color: rgba(0,0,0,0.8);
+  text-decoration: none;
+  background: rgba(0,0,0,0.2);
+}
+/* 动画 */
+ $left: -100%,0;
+ $right: 100%, 0;
+ $top: 0, -100%;
+ $bottom: 0, 100%;
+$per: 100%;
+$animTime: 2s;
+$animType: linear;
+$animDelay: .2s;
+$animCount: infinite;
+@mixin keyframes($type){
+	@-webkit-keyframes #{$type}{
+		@content;
+	}
+	@keyframes #{$type}{
+		@content;
+	}
+}
+@mixin animate($animate, $animCount:1){
+	-webkit-animation: $animate $animTime $animType $animDelay ;
+	animation: $animate $animTime $animType $animDelay ;
+	@if $animCount!=1 {
+		-webkit-animation: $animate $animTime $animType $animDelay $animCount;
+		animation: $animate $animTime $animType $animDelay $animCount;
+	}
+}
+/*@mixin animateInfinite($animate){
+	-webkit-animation: $animate $animTime $animType $animDelay $animCount;
+	animation: $animate $animTime $animType $animDelay $animCount;
+}*/
+
+@mixin origin($dir){
+	-webkit-transform-origin: $dir;
+	transform-origin: $dir;
+}
+@mixin rotate($deg){
+	transform: rotate($deg);
+	-webkit-transform: rotate($deg);
+}
+/*%rotate{
+	0%{@include rotate(0);}
+	25%{@include rotate(90deg);}
+	50%{@include rotate(180deg);}
+	75%{@include rotate(270deg);}
+	100%{@include rotate(360deg);}
+}*/
+
+/* 方向移动 */
+@mixin sliderPlay($dir){
+	0%{transform:translate($dir); }
+	100%{transform:translate(0,0); }
+	0%{-webkit-transform:translate($dir); }
+	100%{-webkit-transform:translate(0,0); }
+}
+/* 方向延伸 */
+@mixin showPlay($dir1, $dir2){
+	0%{ transform: $dir1;}
+	100%{tranform: $dir2;}
+	0%{ -webkit-transform: $dir1;}
+	100%{-webkit-tranform: $dir2;}
+}
+/* 向左滑动 */
+.sliderLeft {
+	@include animate(sliderleft);
+}
+@include keyframes(sliderleft){
+	@include sliderPlay($right);
+}
+/* 向右滑动 */
+.sliderRight {
+	@include animate(sliderright);
+}
+@include keyframes(sliderright){
+	@include sliderPlay($left);
+}
+/* 向上滑动 */
+.sliderUp {
+	@include animate(slidertop);
+}
+@include keyframes(slidertop){
+	@include sliderPlay($bottom);
+}
+/* 向下滑动 */
+.sliderDown {
+	@include animate(sliderdown);
+}
+@include keyframes(sliderdown){
+	@include sliderPlay($top);
+}
+/* 向左展开 */
+.showLeft {
+	@include animate(showleft);
+	@include origin(center right);
+}
+@include keyframes(showleft){
+	@include showPlay(scaleX(0), scaleX(1));
+}
+/* 向右展开 */
+.showRight {
+	@include animate(showright);
+	@include origin(center left);
+}
+@include keyframes(showright){
+	@include showPlay(scaleX(0), scaleX(1));
+}
+/* 向上展开 */
+.showUp {
+	@include animate(showtop);
+	@include origin(bottom center);
+}
+@include keyframes(showtop){
+	@include showPlay(scaleY(0), scaleY(1));
+}
+/* 向下展开 */
+.showDown {
+	@include animate(showbottom);
+	@include origin(top center);
+}
+@include keyframes(showbottom){
+	@include showPlay(scaleY(0), scaleY(1));
+}
+/* 放大  */
+.enlarge {
+	@include animate(enlarge);
+}
+@include keyframes(enlarge){
+	0%{transform: scale(0)}
+	100%{transform: scale(1)}
+}
+/* 缩小 */
+.norrow {
+	@include animate(norrow);
+}
+@include keyframes(norrow){
+	0%{transform: scale(1)}
+	100%{transform: scale(0.2)}
+}
+/* 渐现 */
+.fadeIn {
+	@include animate(fadein);
+}
+@include keyframes(fadein){
+	0%{opacity: 0}
+	100%{opacity: 1}
+}
+/* 渐隐 */
+.fadeOut {
+	@include animate(fadeout);
+}
+@include keyframes(fadeout){
+	0%{opacity: 1}
+	100%{opacity: 0}
+}
+/* 持续跳跃 */
+.jump {
+	@include animate(jump, $animCount);
+}
+@include keyframes(jump){
+	0%{bottom: 0px;}
+	60%{opacity: 1;}
+	100%{bottom: 30px; opacity: 0;}
+}
+
+/* 持续左右移动 */
+.rock {
+	@include animate(rock, $animCount);
+}
+@include keyframes(rock){
+	0%{transform: translate(20px);}
+	50%{transform: translate(-20px);}
+	100%{transform: translate(20px);}
+}
+
+/* 旋转后 */
+.rotateIn {
+	@include animate(rotatein, $animCount);
+	@include origin(center center);
+}
+@include keyframes(rotatein){
+	0%{@include rotate(0);}
+	25%{@include rotate(90deg);}
+	50%{@include rotate(180deg);}
+	75%{@include rotate(270deg);}
+	100%{@include rotate(360deg);}
+}
+/* 旋转后消失 */
+.rotateOut {
+	@include animate(rotateout);
+	@include origin(center center);
+}
+@include keyframes(rotateout){
+	0%{@include rotate(0);}
+	25%{@include rotate(90deg);}
+	50%{@include rotate(180deg);}
+	75%{@include rotate(270deg);}
+	100%{@include rotate(360deg);opacity: 0;}
+}
+/* 水平旋转 */
+.scale {
+	@include animate(scale);
+	@include origin(center center);
+}
+@include keyframes(scale){
+	0%{transform: scaleX(1);-webkit-transform: scaleX(1);}
+	50%{transform: scaleX(0);-webkit-transform: scaleX(0);}
+	100%{transform: scaleX(1);-webkit-transform: scaleX(1);}
+}
